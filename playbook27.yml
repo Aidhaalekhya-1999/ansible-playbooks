@@ -1,0 +1,17 @@
+---
+ - name: aaaa
+   hosts: all
+   tasks:  
+      - name: install tomcat
+        apt:
+          name: tomcat10
+          state: present
+        register: c
+      - name: display the output of the above module
+        debug: 
+          var: c    
+      - name: restart if tomcat is freshly installed
+        service: 
+           name: tomcat10
+           state: restarted
+        when: c.changed == true      

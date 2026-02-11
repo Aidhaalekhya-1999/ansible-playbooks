@@ -1,0 +1,22 @@
+---
+ - name: implementing loops
+   hosts: all
+   tasks: 
+     - name: install tree
+       apt:
+         name: tree
+         state: present
+         update_cache: yes
+       tags: tree_installation
+     - name: create user
+       user: 
+         name: bahu
+         password: bahu
+       tags: user_creation
+     - name: copy the password file
+       copy: 
+         src: /etc/passwd
+         dest: /tmp
+...
+
+
