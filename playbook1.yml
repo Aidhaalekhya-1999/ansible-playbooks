@@ -1,0 +1,15 @@
+---
+
+- name: create a user on all servers
+  hosts: all
+  tasks: 
+    - name: user creation
+      user:
+        name: apple
+        password: alekhya
+        uid: 8899
+        home: /tmp/apple
+        shell: /bin/bash
+        comment: "she is super user"
+...
+

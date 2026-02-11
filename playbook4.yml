@@ -1,0 +1,15 @@
+---
+ - name: Copy tomcat-users.xml file to all servers
+   hosts: all
+   tasks: 
+     - name: copy tomcat-users.xml file
+       copy: 
+         src: tomcat-users.xml
+         dest: /tmp
+         owner: apple
+         group: root
+         mode: 766
+
+...
+
+
